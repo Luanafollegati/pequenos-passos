@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsáveis - Pequenos Passos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+    <main class="login-container">
+
+
+        <h1>
+            <%= responsavel ? 'Editar Responsável' : 'Novo Responsável' %>
+        </h1>
+
+
+        <form
+            action="<%= responsavel ? '/responsaveis/editar/' + responsavel.id : '/responsaveis' %>"
+            method="POST"
+        >
+
+
+            <label for="nome">Nome completo</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                value="<%= responsavel ? responsavel.nome : '' %>"
+                required
+            >
+
+
+            <label for="cpf">CPF</label>
+            <input
+                type="text"
+                id="cpf"
+                name="cpf"
+                maxlength="11"
+                value="<%= responsavel ? responsavel.cpf : '' %>"
+                required
+            >
+
+
+            <label for="email">E-mail</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value="<%= responsavel ? responsavel.email : '' %>"
+                required
+            >
+
+
+            <label for="telefone">Telefone</label>
+            <input
+                type="text"
+                id="telefone"
+                name="telefone"
+                value="<%= responsavel ? responsavel.telefone : '' %>"
+                required
+            >
+
+
+            <button type="submit">
+                <%= responsavel ? 'Salvar alterações' : 'Cadastrar responsável' %>
+            </button>
+
+
+        </form>
+
+
+        <p>
+            <a href="/responsaveis">Voltar para responsáveis</a>
+        </p>
+
+
+    </main>
+
+
+</body>
+</html>

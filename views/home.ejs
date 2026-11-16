@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Pequenos Passos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main class="login-container">
+        <h1>Pequenos Passos</h1>
+        <p>Clínica Pediátrica</p>
+
+
+        <h2>Bem-vindo(a), <%= usuario.nome %>!</h2>
+
+
+        <p>Escolha uma opção:</p>
+
+
+        <nav>
+            <a href="/responsaveis">Responsáveis</a>
+            <a href="/criancas">Crianças</a>
+            <a href="/atendimentos">Atendimentos</a>
+        </nav>
+
+
+        <form action="/logout" method="POST">
+            <button type="submit">Sair do sistema</button>
+        </form>
+    </main>
+</body>
+</html>
