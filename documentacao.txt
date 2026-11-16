@@ -1,0 +1,106 @@
+# DOCUMENTAÇÃO DO PROJETO
+## Clínica Pediátrica Pequenos Passos
+
+Integrantes: Luana Follegati e Isabela Duetes
+
+Curso: Técnico em Desenvolvimento de Sistemas
+
+Projeto: Gestão de Clínica Pediátrica
+
+### 1. Descrição do projeto
+
+O projeto Clínica Pediátrica Pequenos Passos tem como objetivo desenvolver um sistema web para ajudar na organização dos atendimentos de uma clínica pediátrica.
+
+O sistema permitirá cadastrar responsáveis, registrar crianças vinculadas a eles e organizar os atendimentos realizados na clínica. Também contará com uma tela de login para controlar o acesso dos operadores.
+
+### 2. Objetivo
+
+Facilitar o gerenciamento das informações da clínica, deixando os cadastros mais organizados e permitindo consultar os dados de responsáveis, crianças e atendimentos em um único sistema.
+
+### 3. Requisitos funcionais
+
+RF01 – Login: permitir que o operador entre no sistema utilizando CPF e senha.
+
+RF02 – Página inicial: apresentar o nome do operador autenticado e as opções de navegação do sistema.
+
+RF03 – Responsáveis: permitir cadastrar, consultar, editar e excluir responsáveis.
+
+RF04 – Busca: permitir pesquisar responsáveis pelo nome, utilizando parte do nome informado.
+
+RF05 – Crianças: permitir cadastrar, consultar, editar e excluir crianças, sempre vinculadas a um responsável existente.
+
+RF06 – Atendimentos: permitir cadastrar, consultar, editar e excluir atendimentos, vinculando cada um a uma criança cadastrada.
+
+RF07 – Listagem completa: apresentar os dados dos atendimentos junto com as informações da criança e do responsável vinculado.
+
+RF08 – Ordenação: organizar os atendimentos por data e horário, mostrando primeiro os mais próximos.
+
+RF09 – Sessão: controlar o acesso ao sistema, identificar o operador autenticado, permitir sair da conta e impedir o acesso de pessoas não autenticadas.
+
+### 4. Tecnologias utilizadas
+
+HTML: estrutura das páginas e formulários.
+
+CSS: aparência e organização visual do sistema.
+
+JavaScript: desenvolvimento da lógica do sistema, validações e funcionamento das rotas.
+
+Node.js: execução do projeto no ambiente local.
+
+Express: criação do servidor e gerenciamento das rotas.
+
+EJS: geração das páginas exibidas ao usuário.
+
+PostgreSQL: armazenamento das informações do sistema.
+
+bcrypt: criação e verificação de hashes das senhas.
+
+express-session: controle das sessões dos usuários.
+
+pg: conexão entre o sistema e o banco de dados.
+
+### 5. Arquitetura do sistema
+
+O projeto utilizará uma aplicação Full Stack com renderização de páginas no servidor.
+
+O usuário acessará o sistema pelo navegador, preencherá formulários HTML e enviará as informações para as rotas do Express. O servidor realizará as validações necessárias, acessará o banco de dados PostgreSQL e utilizará o EJS para apresentar as informações nas páginas.
+
+A comunicação entre o sistema e o banco de dados será realizada por meio do módulo pg, utilizando consultas SQL.
+
+### 6. Infraestrutura necessária
+
+- Computador para desenvolvimento.
+- Visual Studio Code.
+- Node.js e npm instalados.
+- PostgreSQL instalado e em execução.
+- Navegador de internet.
+- Dependências do projeto instaladas pelo npm.
+
+Ambiente de desenvolvimento:
+
+- Editor: Visual Studio Code.
+- Servidor: Node.js com Express.
+- Banco de dados: PostgreSQL.
+- Execução: ambiente local.
+- Porta HTTP: 3000 (prevista para o servidor Express).
+- Porta PostgreSQL: a ser confirmada no ambiente de desenvolvimento.
+
+### 7. Segurança e proteção dos dados
+
+O sistema utilizará o bcrypt para proteger as senhas dos operadores, armazenando apenas seus hashes no banco de dados, sem guardar as senhas em texto puro.
+
+Também serão utilizadas sessões para controlar o acesso ao sistema, com tempo de expiração configurado e opção de logout.
+
+As rotas internas serão protegidas para impedir que pessoas não autenticadas acessem as informações da clínica.
+
+Os formulários terão validações para verificar o preenchimento dos campos obrigatórios e a existência dos responsáveis e das crianças vinculadas.
+
+As consultas ao banco de dados serão parametrizadas para evitar problemas de segurança, como SQL Injection. Também serão utilizadas chaves primárias e estrangeiras para manter os relacionamentos entre as tabelas e evitar registros sem vínculo.
+
+Para os testes, serão utilizados dados fictícios, sem informações reais de pacientes ou responsáveis. As credenciais e chaves de acesso não serão compartilhadas junto ao código-fonte.
+
+### 8. Considerações finais
+
+Com o desenvolvimento deste projeto, será possível colocar em prática os conhecimentos de desenvolvimento Full Stack, trabalhando com formulários HTML, páginas EJS, rotas Express, autenticação e banco de dados PostgreSQL.
+
+O sistema busca oferecer uma maneira simples e organizada de gerenciar as informações dos responsáveis, das crianças e dos atendimentos da Clínica Pediátrica Pequenos Passos, facilitando a organização das atividades da clínica.

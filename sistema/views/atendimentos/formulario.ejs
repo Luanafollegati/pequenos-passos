@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimentos - Pequenos Passos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main class="login-container">
+        <h1><%= atendimento ? 'Editar Atendimento' : 'Novo Atendimento' %></h1>
+
+
+        <form
+            action="<%= atendimento ? '/atendimentos/editar/' + atendimento.id : '/atendimentos' %>"
+            method="POST"
+        >
+            <label for="crianca_id">Criança</label>
+            <select id="crianca_id" name="crianca_id" required>
+                <option value="">Selecione uma criança</option>
+
+
+                <% criancas.forEach(crianca => { %>
+                    <option
+                        value="<%= crianca.id %>"
+                        <%= atendimento && atendimento.crianca_id === crianca.id ? 'selected' : '' %>
+                    >
+                        <%= crianca.nome %> - Responsável: <%= crianca.nome_responsavel %>
+                    </option>
+                <% }) %>
+            </select>
+
+
+            <label for="data_atendimento">Data do atendimento</label>
+            <input
+                type="date"
+                id="data_atendimento"
+                name="data_atendimento"
+                value="<%= atendimento ? new Date(atendimento.data_atendimento).toISOString().slice(0, 10) : '' %>"
+                required
+            >
+
+
+            <label for="horario">Horário</label>
+            <input
+                type="time"
+                id="horario"
+                name="horario"
+                value="<%= atendimento ? String(atendimento.horario).slice(0, 5) : '' %>"
+                required
+            >
+
+
+            <label for="motivo">Motivo do atendimento</label>
+            <input
+                type="text"
+                id="motivo"
+                name="motivo"
+                value="<%= atendimento ? atendimento.motivo : '' %>"
+                required
+            >
+
+
+            <label for="situacao">Situação</label>
+            <select id="situacao" name="situacao" required>
+                <option value="">Selecione a situação</option>
+
+
+                <% ['Agendado', 'Confirmado', 'Realizado', 'Cancelado'].forEach(opcao => { %>
+                    <option
+                        value="<%= opcao %>"
+                        <%= atendimento && atendimento.situacao === opcao ? 'selected' : '' %>
+                    >
+                        <%= opcao %>
+                    </option>
+                <% }) %>
+            </select>
+
+
+            <button type="submit">
+                <%= atendimento ? 'Salvar alterações' : 'Cadastrar atendimento' %>
+            </button>
+        </form>
+
+
+        <p><a href="/atendimentos">Voltar para atendimentos</a></p>
+    </main>
+</body>
+</html>
